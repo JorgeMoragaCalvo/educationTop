@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TopEducation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background-color: #1b1b32;
+            color: #FAEBD7;
+        }
+    </style>
+
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Students List</h2>
+        <div class="container">
+            <div class="col">
+                <a class="btn btn-outline-success" th:href="@{students/new}">
+                    <i class="mx-1 fa-solid fa-plus"></i>Create Student</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Rut</th>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="student : ${students}">
+                        <td th:text="${student.rut}"></td>
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.lastName}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Birth Date</th>
+                        <th>Type School</th>
+                        <th>School Name</th>
+                        <th>Graduation Year</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="student : ${students}">
+                        <td th:text="${student.birthDate}"></td>
+                        <td th:text="${student.typeSchool}"></td>
+                        <td th:text="${student.schoolName}"></td>
+                        <td th:text="${student.graduationYear}"></td>
+                        <td>
+                            <a class="text-success" href="#"><i class="fa-solid fa-pen-to-square mx-3"></i></a>
+                            <a class="text-danger" href="#"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Report Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #1b1b32;
+            color: #FAEBD7;
+        }
+
+        h2 {
+            color: #1b1b32;
+        }
+
+        .h2-text{
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .container {
+            background-color: #FAEBD7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .container p {
+            margin-bottom: 10px;
+        }
+
+        p{
+            color: #1b1b32;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container mt-4">
+        <h2 class="text-center"><span class="h2-text">Resumen</span></h2>
+        <p><strong>Nombre: </strong><span th:text="${report.name}"></span></p>
+        <p><strong>Apellido: </strong><span th:text="${report.lastName}"></span></p>
+        <p><strong>Rut: </strong><span th:text="${report.rut}"></span></p>
+        <p><strong>Exámenes rendidos: </strong><span th:text="${report.totalExams}"></span></p>
+        <p><strong>Promedio: </strong><span th:text="${report.averageScore}"></span></p>
+        <p><strong>Tipo de pago: </strong><span th:text="${report.paymentType}"></span></p>
+        <p><strong>Cuotas: </strong><span th:text="${report.dues}"></span></p>
+        <p><strong>Descuento: </strong><span th:text="${report.discount} + '%'"></span></p>
+        <p><strong>Total: </strong><span th:text="'$' + ${report.totalPay}">$</span></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
