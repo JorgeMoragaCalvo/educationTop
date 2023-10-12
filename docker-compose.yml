@@ -2,7 +2,7 @@ version: '3.8'
 services:
     spring-app:
         container_name: spring-app
-        image: top-app:1
+        image: jmoragacalvo/top-app:1
         build: .
         ports:
           - "8090:8090"
