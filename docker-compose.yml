@@ -1,11 +1,38 @@
-version: '3.8'
+version: "3.8"
 services:
-    spring-app:
-        container_name: spring-app
+    nginx:
+      image: nginx:latest
+      container_name: nginx-proxy
+      restart: always
+      ports:
+        - "80:80"
+      volumes:
+        - ./nginx/conf.d:/etc/nginx/conf.d
+      depends_on:
+        - educationtop1
+        - educationtop2
+
+    postgres-db:
+      container_name: postgres-db
+      image: postgres:latest
+      restart: always
+      volumes:
+        - ./data/db:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_DB: topeducation
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: gejromor77
+
+    educationtop1:
+        container_name: project-educationtop1
         image: jmoragacalvo/top-app:1
-        build: .
         ports:
-          - "8090:8090"
+          - "8091:8090"
+        deploy:
+          restart_policy:
+            condition: on-failure
         depends_on:
           - postgres-db
         environment:
@@ -14,15 +41,18 @@ services:
           - SPRING_DATASOURCE_PASSWORD=gejromor77
           - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
-    postgres-db:
-        container_name: postgres-db
-        image: postgres:latest
-        restart: always
-        volumes:
-          - ./data/db:/var/lib/postgresql/data
-        ports:
-          - "5432:5432"
-        environment:
-          POSTGRES_DB: topeducation
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: gejromor77
+    educationtop2:
+      container_name: project-educationtop2
+      image: jmoragacalvo/top-app:1
+      ports:
+        - "8092:8090"
+      deploy:
+        restart_policy:
+          condition: on-failure
+      depends_on:
+        - postgres-db
+      environment:
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/topeducation
+        - SPRING_DATASOURCE_USERNAME=postgres
+        - SPRING_DATASOURCE_PASSWORD=gejromor77
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
