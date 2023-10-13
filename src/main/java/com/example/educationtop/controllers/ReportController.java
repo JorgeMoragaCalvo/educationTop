@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/report")
+@RequestMapping("report")
 public class ReportController {
 
     private final ReportService reportService;

@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping
 public class StudentController {
 
     public final StudentService studentService;
@@ -19,12 +21,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping("/index")
-    public String index(){
-        return "index";
-    }
-
-    @GetMapping({"/students", "/"})
+    @GetMapping("/students")
     public String getStudents(Model model){
         model.addAttribute("students", studentService.allStudents());
         return "students";

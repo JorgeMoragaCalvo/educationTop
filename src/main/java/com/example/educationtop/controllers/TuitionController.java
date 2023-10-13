@@ -14,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping
 public class TuitionController {
 
     private final TuitionService tuitionService;
@@ -25,7 +27,7 @@ public class TuitionController {
         this.tuitionService = tuitionService;
     }
 
-    @GetMapping({"/registrations", "/"})
+    @GetMapping("/registrations")
     public String getRegistrations(Model model){
         model.addAttribute("registrations", tuitionService.allRegistrations());
         return "registrations";
@@ -43,5 +45,4 @@ public class TuitionController {
         tuitionService.createRegistrations(tuitionEntity);
         return "redirect:/registrations";
     }
-
 }

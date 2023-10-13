@@ -21,10 +21,8 @@ public class ReportTest {
 
     ReportService reportService = new ReportService();
 
-    @Mock
     private TuitionRepository tuitionRepository;
 
-    @Mock
     private ReportRepository reportRepository;
 
     //@Before("")
