@@ -22,20 +22,24 @@
             font-size: 2.5rem;
             font-weight: bold;
             text-align: center;
+            color: beige;
         }
 
         p {
             font-size: 1.2rem;
             text-align: center;
             margin-top: 20px;
+            color: beige;
         }
     </style>
 </head>
 <body>
     <div th:replace="fragments/navbar :: navbar"></div>
 
-    <div class="container">
+    <div class="container text-center">
         <h1>Bienvenido a Top Education</h1>
+        <img th:src="@{/images/image1.jpg}" alt="students chatting at a table"
+             class="img-fluid mx-auto b-block" style="width: 500px; height: auto;">
         <p>Prepárate con nosotros para alcanzar tus metas y superar tus límites.</p>
     </div>
 </body>
