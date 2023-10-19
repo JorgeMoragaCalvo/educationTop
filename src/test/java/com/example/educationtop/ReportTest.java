@@ -1,21 +1,14 @@
 package com.example.educationtop;
 
-import com.example.educationtop.entities.ReportEntity;
-import com.example.educationtop.entities.ScoreEntity;
 import com.example.educationtop.entities.StudentEntity;
-import com.example.educationtop.entities.TuitionEntity;
 import com.example.educationtop.repositories.ReportRepository;
 import com.example.educationtop.repositories.TuitionRepository;
 import com.example.educationtop.services.ReportService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
-import static org.mockito.Mockito.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.client.ExpectedCount.times;
+
 
 public class ReportTest {
 
