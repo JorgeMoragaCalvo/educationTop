@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
     <form th:action="@{/your-route/processing-excel}" method="post" enctype="multipart/form-data" class="container mt-5">
         <div class="row justify-content-center">

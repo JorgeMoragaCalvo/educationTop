@@ -28,7 +28,7 @@
 </head>
 <body class="fondo">
     <!-- Navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
     <!-- End Navbar -->
 
     <div class="container mt-5">
@@ -37,7 +37,7 @@
             <div class="col-4 offset-4">
 
                 <form id="student-form" class="fondo-form" th:action="@{/students}" th:object="${student}" method="POST">
-                    <!--   -->
+                    <!-- th:object="${student}" se recibe el objeto student  -->
                     <div class="mb-3">
                         <label for="rut" class="form-label">Rut</label>
                         <input

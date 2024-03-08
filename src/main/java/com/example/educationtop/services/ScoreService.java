@@ -83,5 +83,5 @@ public class ScoreService {
             score.setAverageExams(nuevoPromedio);
         }
         scoreRepository.save(score);
-    }
+    } 
 }

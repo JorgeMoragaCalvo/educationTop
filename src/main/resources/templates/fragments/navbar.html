@@ -1,7 +1,8 @@
 <nav th:fragment="navbar" class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">TopEducation</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -9,26 +10,54 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/students/new">Create Student</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Students
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/students/new">Create Student</a></li>
+                        <li><a class="dropdown-item" href="/students">Student List</a></li>
+                    </ul>
+                    <!-- <a class="nav-link" href="/students/new">Create Student</a> -->
                 </li>
+                <!--
                 <li class="nav-item">
                     <a class="nav-link" href="/students">Student List</a>
                 </li>
+                -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Exams
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/your-route/form">Processing Exams File</a></li>
+                        <li><a class="dropdown-item" href="/your-route/show-scores">Exams Result List</a></li>
+                    </ul>
+                    <!-- <a class="nav-link" href="/your-route/form">Processing File</a> -->
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/your-route/form">Processing File</a>
-                </li>
+                <!--
                 <li class="nav-item">
                     <a class="nav-link" href="/your-route/show-scores">Resultados Pruebas</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/registrations/new">Matrícula</a>
+                -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tuition
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/registrations/new">Create Tuition</a></li>
+                        <li><a class="dropdown-item" href="#">Tuition List</a></li>
+                    </ul>
+                    <!-- <a class="nav-link" href="/registrations/new">Matrícula</a> -->
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/report/form">Reporte</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Report
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/report/form">Create Report</a></li>
+                    </ul>
+                    <!-- <a class="nav-link" href="/report/form">Reporte</a> -->
                 </li>
 
                 <li class="nav-item dropdown">
